@@ -1,10 +1,20 @@
 class BookMark
-	def initialize (title, url)
-		@param_title = title
-	    @param_url = url
-	   
+	attr_accessor :url, :title
+	attr_reader :last_visited
+	
+	def initialize (url, title)
+		@url = url
+		@title = title
+		@last_visited = Time.now
 	end    	
+
+    def visit!
+        @last_visited = Time.now
+    end
+
 end
-bookmark = BookMark.new('See Jill Run', ' ')
-puts bookmark.title
+
+bookmark = BookMark.new('yahoo.com', 'Yahoo!')
 puts bookmark.url
+puts bookmark.title
+puts bookmark.visit!
